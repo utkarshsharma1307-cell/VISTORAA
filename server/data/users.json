@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "VISTORA Admin",
+    "email": "admin@vistora.blog",
+    "passwordHash": "$2a$10$CaqqKH0wPJ3J0n59STHLWepX9PTduvJRLRI3HZYeWjUiN1kfdJdZa",
+    "role": "admin",
+    "bio": "Editorial administrator. Demo account — change this password.",
+    "createdAt": "2026-09-29T17:57:13.614Z"
+  },
+  {
+    "id": 2,
+    "name": "Maya Patel",
+    "email": "maya@vistora.blog",
+    "passwordHash": "$2a$10$Ce8u9TUy1lrqi6fxDC0IO.z0u4s6rqorx7cqnnVWwj1wixMkrt0.C",
+    "role": "author",
+    "bio": "Senior Technology Editor.",
+    "createdAt": "2026-09-29T17:57:13.614Z"
+  }
+]

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your VISTORA profile — manage your account, view reading stats, and access saved stories.">
+  <title>My Profile — VISTORA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-weight='bold' fill='%23c26d53'>V</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" class="brand-logo" aria-label="VISTORA Home">
+          <span class="logo-mark">V</span>
+          <span class="logo-text">VISTORA</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="blog.html" class="nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-right">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn theme-toggle" aria-label="Switch to dark theme" title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- User Nav Container (populated by auth.js) -->
+        <div id="userNavContainer" class="user-nav-wrap"></div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNavMenu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="mobile-nav-link">Categories</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About</a></li>
+          <li><a href="saved.html" class="mobile-nav-link">Saved</a></li>
+          <li><a href="history.html" class="mobile-nav-link">History</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <a href="blog.html" class="btn btn-primary btn-block">Explore All Stories</a>
+          <p class="mobile-tagline">"Thoughtful stories for modern minds."</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="section profile-page-section">
+      <div class="container container-md">
+        <!-- Profile Header -->
+        <div class="profile-header reveal">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar-large" id="profileAvatarLarge">U</div>
+          </div>
+          <div class="profile-header-info">
+            <h1 class="profile-display-name" id="profileDisplayName">Loading...</h1>
+            <p class="profile-email" id="profileEmail">Loading...</p>
+            <span class="profile-role-badge" id="profileRoleBadge">Reader</span>
+          </div>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="profileAlertBox" class="auth-alert" style="display: none;" aria-live="polite"></div>
+
+        <!-- Stats Row -->
+        <div class="profile-stats-row reveal" id="profileStatsRow">
+          <div class="stat-card">
+            <span class="stat-number" id="statArticlesRead">0</span>
+            <span class="stat-label">Articles Read</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statReadingTime">0</span>
+            <span class="stat-label">Minutes Reading</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statBookmarks">0</span>
+            <span class="stat-label">Bookmarks</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="statLikes">0</span>
+            <span class="stat-label">Likes Given</span>
+          </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="profile-tabs reveal" id="profileTabs">
+          <button class="profile-tab-btn active" data-tab="bookmarks" aria-selected="true">Saved Stories</button>
+          <button class="profile-tab-btn" data-tab="history" aria-selected="false">Reading History</span>
+          <button class="profile-tab-btn" data-tab="settings" aria-selected="false">Account Settings</span>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="profile-tab-panels">
+          <!-- Bookmarks Tab -->
+          <div class="profile-tab-panel active" id="tabBookmarks" role="tabpanel">
+            <div class="story-grid" id="bookmarksGrid"></div>
+            <div id="bookmarksEmpty" class="empty-state" style="display: none; text-align: center; padding: 4rem 0;">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem; color: var(--text-muted);">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <h2 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">No Saved Stories Yet</h2>
+              <p class="text-muted" style="margin-bottom: 1.5rem;">Stories you bookmark will appear here for quick access.</p>
+              <a href="blog.html" class="btn btn-primary">Browse Journal</a>
+              <div class="export-actions" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                <button type="button" class="btn btn-ghost" id="exportBookmarksBtn">Export Bookmarks (JSON)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- History Tab -->
+          <div class="profile-tab-panel" id="tabHistory" role="tabpanel" style="display: none;">
+            <div class="story-grid" id="historyGrid"></div>
+            <div id="historyEmpty" class="empty-state" style="display: none; text-align: center; padding: 4rem 0;">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem; color: var(--text-muted);">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <h2 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">No Reading History</h2>
+              <p class="text-muted" style="margin-bottom: 1.5rem;">Articles you read will appear here with timestamps.</p>
+              <a href="blog.html" class="btn btn-primary">Start Reading</a>
+            </div>
+          </div>
+
+          <!-- Settings Tab -->
+          <div class="profile-tab-panel" id="tabSettings" role="tabpanel" style="display: none;">
+            <form id="profileSettingsForm" class="auth-form">
+              <h3 class="settings-section-title">Profile Information</h3>
+              <div class="form-group">
+                <label for="profileName" class="form-label">Display Name</label>
+                <input type="text" id="profileName" class="form-input" required autocomplete="name">
+              </div>
+
+              <div class="form-group">
+                <label for="profileBio" class="form-label">About / Bio</label>
+                <textarea id="profileBio" class="form-textarea" rows="3" placeholder="Tell the editorial community a bit about yourself..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Avatar Color Theme</label>
+                <div class="avatar-picker-row" id="avatarPicker">
+                  <label class="avatar-option"><input type="radio" name="avatarColor" value="avatar-terracotta"><span class="avatar-color-badge bg-terracotta"></span></label>
+                  <label class="avatar-option"><input type="radio" name="avatarColor" value="avatar-teal"><span class="avatar-color-badge bg-teal"></span></label>
+                  <label class="avatar-option"><input type="radio" name="avatarColor" value="avatar-olive"><span class="avatar-color-badge bg-olive"></span></label>
+                  <label class="avatar-option"><input type="radio" name="avatarColor" value="avatar-slate"><span class="avatar-color-badge bg-slate"></span></label>
+                </div>
+              </div>
+
+              <h3 class="settings-section-title" style="margin-top: 2rem;">Security</h3>
+              <div class="form-group">
+                <label for="currentPassword" class="form-label">Current Password</label>
+                <div class="form-label-row">
+                  <input type="password" id="currentPassword" class="form-input" placeholder="Enter current password" autocomplete="current-password">
+                  <button type="button" class="form-text-link toggle-pw-btn" data-target="currentPassword">Show</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="newPassword" class="form-label">New Password (min 8 characters)</label>
+                <div class="form-label-row">
+                  <input type="password" id="newPassword" class="form-input" placeholder="Enter new password" minlength="8" autocomplete="new-password">
+                  <button type="button" class="form-text-link toggle-pw-btn" data-target="newPassword">Show</button>
+                </div>
+                <div class="password-strength" id="settingsPasswordStrength">
+                  <div class="strength-bar"><span class="strength-fill" id="settingsStrengthFill"></span></div>
+                  <span class="strength-text" id="settingsStrengthText">Password strength</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                <div class="form-label-row">
+                  <input type="password" id="confirmNewPassword" class="form-input" placeholder="Confirm new password" autocomplete="new-password">
+                  <button type="button" class="form-text-link toggle-pw-btn" data-target="confirmNewPassword">Show</button>
+                </div>
+              </div>
+
+              <div class="form-actions-split">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-ghost" id="profileLogoutBtn">Sign Out</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand-logo footer-logo">
+            <span class="logo-mark">V</span>
+            <span class="logo-text">VISTORA</span>
+          </a>
+          <p class="footer-tagline">
+            An independent editorial publication curating essays on human-centered technology, intentional living, design principles, and creative craft.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Journal Archive</a></li>
+            <li><a href="saved.html">Saved Stories</a></li>
+            <li><a href="history.html">Reading History</a></li>
+            <li><a href="about.html">About VISTORA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Technology">Technology</a></li>
+            <li><a href="blog.html?category=Lifestyle">Lifestyle</a></li>
+            <li><a href="blog.html?category=Travel">Travel</a></li>
+            <li><a href="blog.html?category=Business">Business</a></li>
+            <li><a href="blog.html?category=Inspiration">Inspiration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Editorial Desk</h4>
+          <a href="mailto:contact@vistora.blog" class="footer-contact-link">contact@vistora.blog</a>
+          <p class="footer-location">New Delhi &bull; London &bull; Tokyo</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 VISTORA Editorial. All rights reserved.</p>
+        <p class="tech-stack-text">Built with <strong>HTML5, CSS3 & Vanilla JavaScript</strong> &bull; Zero Frameworks</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

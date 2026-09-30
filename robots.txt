@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vistora.blog/sitemap.xml

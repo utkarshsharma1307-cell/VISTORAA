@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "name": "Technology",
+      "desc": "AI, Interfaces, Digital Ethics",
+      "icon": "terminal",
+      "count": 3
+    },
+    {
+      "name": "Lifestyle",
+      "desc": "Slow Living, Habits, Wellbeing",
+      "icon": "coffee",
+      "count": 1
+    },
+    {
+      "name": "Travel",
+      "desc": "Slow Journeys, Retreats, Cultures",
+      "icon": "compass",
+      "count": 1
+    },
+    {
+      "name": "Business",
+      "desc": "Clarity, Systems, Modern Work",
+      "icon": "briefcase",
+      "count": 3
+    },
+    {
+      "name": "Personal",
+      "desc": "Reflections, Growth, Solitude",
+      "icon": "user",
+      "count": 2
+    },
+    {
+      "name": "Inspiration",
+      "desc": "Design, Creative Craft, Ideas",
+      "icon": "feather",
+      "count": 2
+    }
+  ],
+  "nextIds": {
+    "users": 3,
+    "articles": 100,
+    "comments": 1,
+    "reactions": 1,
+    "newsletter": 1,
+    "contacts": 1
+  }
+}

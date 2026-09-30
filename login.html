@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to VISTORA to save stories, leave comments, and track your reading progress.">
+  <title>Sign In — VISTORA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-weight='bold' fill='%23c26d53'>V</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" class="brand-logo" aria-label="VISTORA Home">
+          <span class="logo-mark">V</span>
+          <span class="logo-text">VISTORA</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="blog.html" class="nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-right">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn theme-toggle" aria-label="Switch to dark theme" title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNavMenu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="mobile-nav-link">Categories</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About</a></li>
+          <li><a href="saved.html" class="mobile-nav-link">Saved</a></li>
+          <li><a href="history.html" class="mobile-nav-link">History</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <a href="blog.html" class="btn btn-primary btn-block">Explore All Stories</a>
+          <p class="mobile-tagline">"Thoughtful stories for modern minds."</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="section auth-page-section">
+      <div class="container container-sm">
+        <div class="auth-card reveal">
+          <div class="auth-card-header">
+            <span class="auth-brand-badge">VISTORA ACCOUNTS</span>
+            <h1 class="auth-card-title">Welcome Back</h1>
+            <p class="auth-card-subtitle">Sign in to save stories, join discussions, and track your reading journey.</p>
+          </div>
+
+          <div id="authAlertBox" class="auth-alert" style="display: none;" aria-live="polite"></div>
+
+          <form id="loginForm" class="auth-form" novalidate>
+            <div class="form-group">
+              <label for="loginEmail" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="loginEmail"
+                class="form-input"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+                aria-describedby="loginEmailError"
+              >
+              <span id="loginEmailError" class="form-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="loginPassword" class="form-label">Password</label>
+                <button type="button" class="form-text-link toggle-pw-btn" data-target="loginPassword" aria-label="Toggle password visibility">Show</button>
+              </div>
+              <input
+                type="password"
+                id="loginPassword"
+                class="form-input"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+                aria-describedby="loginPasswordError"
+              >
+              <span id="loginPasswordError" class="form-error" aria-live="polite"></span>
+            </div>
+
+            <div class="auth-quick-creds">
+              <span class="quick-creds-label">Demo accounts:</span>
+              <button type="button" class="quick-fill-btn" data-email="admin@vistora.blog" data-password="admin123" data-role="Admin">Admin</button>
+              <button type="button" class="quick-fill-btn" data-email="maya@vistora.blog" data-password="maya123" data-role="Author">Author</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="loginSubmitBtn">
+              <span>Sign In to VISTORA</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </form>
+
+          <div class="auth-card-footer">
+            <p>Don't have an account? <a href="signup.html" class="auth-link">Create one</a></p>
+            <p class="auth-terms-note">By signing in, you agree to VISTORA's <a href="#" class="auth-link">Editorial Guidelines</a> and <a href="#" class="auth-link">Privacy Terms</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand-logo footer-logo">
+            <span class="logo-mark">V</span>
+            <span class="logo-text">VISTORA</span>
+          </a>
+          <p class="footer-tagline">
+            An independent editorial publication curating essays on human-centered technology, intentional living, design principles, and creative craft.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Journal Archive</a></li>
+            <li><a href="saved.html">Saved Stories</a></li>
+            <li><a href="history.html">Reading History</a></li>
+            <li><a href="about.html">About VISTORA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Technology">Technology</a></li>
+            <li><a href="blog.html?category=Lifestyle">Lifestyle</a></li>
+            <li><a href="blog.html?category=Travel">Travel</a></li>
+            <li><a href="blog.html?category=Business">Business</a></li>
+            <li><a href="blog.html?category=Inspiration">Inspiration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Editorial Desk</h4>
+          <a href="mailto:contact@vistora.blog" class="footer-contact-link">contact@vistora.blog</a>
+          <p class="footer-location">New Delhi &bull; London &bull; Tokyo</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 VISTORA Editorial. All rights reserved.</p>
+        <p class="tech-stack-text">Built with <strong>HTML5, CSS3 & Vanilla JavaScript</strong> &bull; Zero Frameworks</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

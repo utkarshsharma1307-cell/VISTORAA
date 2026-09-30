@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VISTORA — Thoughtful stories on technology, lifestyle, travel, business, and creative living for modern minds.">
+  <meta name="keywords" content="blog, editorial, lifestyle, technology, modern living, travel, design">
+  <meta name="author" content="VISTORA Editorial Team">
+  <title>VISTORA — Thoughtful Stories for Modern Minds</title>
+
+  <!-- Favicon (SVG data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-weight='bold' fill='%23c26d53'>V</text></svg>">
+
+  <!-- Google Fonts & System Fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- SEO & Open Graph Tags -->
+  <link rel="canonical" href="https://vistora.blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VISTORA — Thoughtful Stories for Modern Minds">
+  <meta property="og:description" content="Thoughtful stories on technology, lifestyle, travel, business, and creative living for modern minds.">
+  <meta property="og:image" content="https://vistora.blog/images/og-image.jpg">
+  <meta property="og:url" content="https://vistora.blog/">
+  <meta property="og:site_name" content="VISTORA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VISTORA — Thoughtful Stories for Modern Minds">
+  <meta name="twitter:description" content="Thoughtful stories on technology, lifestyle, travel, business, and creative living for modern minds.">
+  <meta name="twitter:image" content="https://vistora.blog/images/og-image.jpg">
+  <link rel="alternate" type="application/rss+xml" title="VISTORA RSS Feed" href="rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "VISTORA",
+    "url": "https://vistora.blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "VISTORA Editorial Team"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" class="brand-logo" aria-label="VISTORA Home">
+          <span class="logo-mark">V</span>
+          <span class="logo-text">VISTORA</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="blog.html" class="nav-link">Journal</a></li>
+          <li><a href="saved.html" class="nav-link">Saved</a></li>
+          <li><a href="history.html" class="nav-link">History</a></li>
+          <li><a href="admin.html" class="nav-link">Write</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-right">
+        <a href="blog.html?focus=search" class="icon-btn search-trigger-btn" aria-label="Search articles" title="Search articles">
+          <svg class="nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </a>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn theme-toggle" aria-label="Switch to dark theme" title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- User Authentication & Profile Menu Button -->
+        <div id="userNavContainer" class="user-nav-wrap"></div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNavMenu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+          <li><a href="saved.html" class="mobile-nav-link">Saved Stories</a></li>
+          <li><a href="history.html" class="mobile-nav-link">Reading History</a></li>
+          <li><a href="admin.html" class="mobile-nav-link">Write / CMS Studio</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <a href="admin.html" class="btn btn-primary btn-block">Write a Story</a>
+          <p class="mobile-tagline">“Thoughtful stories for modern minds.”</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- Hero / Featured Story Section -->
+    <section class="hero-section" id="featuredHero">
+      <div class="hero-container">
+        <div class="hero-card reveal">
+          <div class="hero-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+              alt="Minimalist technology workspace with laptop and warm natural light"
+              class="hero-img"
+              id="heroImage"
+              loading="eager"
+            >
+            <div class="hero-overlay"></div>
+          </div>
+
+          <div class="hero-content">
+            <div class="hero-badge-wrap">
+              <span class="editorial-issue">ISSUE NO. 14 &bull; ESSAY</span>
+              <span class="badge category-badge" id="heroCategory">Technology</span>
+            </div>
+
+            <h1 class="hero-title" id="heroTitle">The Quiet Future of Human-Centered AI</h1>
+            <p class="hero-excerpt" id="heroExcerpt">
+              A thoughtful exploration of how intelligent systems can enrich daily contemplation, foster craft, and elevate human judgment rather than replace it.
+            </p>
+
+            <div class="hero-meta">
+              <div class="author-snippet">
+                <div class="author-avatar" id="heroAuthorAvatar">MP</div>
+                <span class="author-name" id="heroAuthor">Maya Patel</span>
+              </div>
+              <span class="meta-dot">&bull;</span>
+              <time datetime="2026-03-10" id="heroDate">March 10, 2026</time>
+              <span class="meta-dot">&bull;</span>
+              <span class="reading-time" id="heroReadTime">5 min read</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="post.html?slug=the-quiet-future-of-human-centered-ai" class="btn btn-accent btn-lg" id="heroLink">
+                Read Story
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="blog.html" class="btn btn-ghost btn-lg">Explore Journal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editor's Highlights Section -->
+    <section class="section highlights-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-sub">Curated Selection</span>
+            <h2 class="section-title">Editor's Highlights</h2>
+          </div>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="highlights-grid" id="highlightsGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories-section" id="categories">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-title-wrap">
+            <span class="section-sub">Browse by Theme</span>
+            <h2 class="section-title">Explore Categories</h2>
+          </div>
+          <p class="section-desc">Dive into curated archives covering modern technology, mindful living, wanderlust, and personal craft.</p>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Category Cards -->
+          <a href="blog.html?category=Technology" class="category-card reveal" data-category="Technology">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Technology</h3>
+              <p class="category-count">AI, Interfaces, Digital Ethics</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="blog.html?category=Lifestyle" class="category-card reveal" data-category="Lifestyle">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Lifestyle</h3>
+              <p class="category-count">Slow Living, Habits, Wellbeing</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="blog.html?category=Travel" class="category-card reveal" data-category="Travel">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Travel</h3>
+              <p class="category-count">Slow Journeys, Retreats, Cultures</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="blog.html?category=Business" class="category-card reveal" data-category="Business">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Business</h3>
+              <p class="category-count">Clarity, Systems, Modern Work</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="blog.html?category=Personal" class="category-card reveal" data-category="Personal">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Personal</h3>
+              <p class="category-count">Reflections, Growth, Solitude</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a href="blog.html?category=Inspiration" class="category-card reveal" data-category="Inspiration">
+            <div class="category-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Inspiration</h3>
+              <p class="category-count">Design, Creative Craft, Ideas</p>
+            </div>
+            <span class="category-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Stories Section -->
+    <section class="section latest-section">
+      <div class="container">
+        <div class="section-header-flex reveal">
+          <div>
+            <span class="section-sub">Fresh Perspectives</span>
+            <h2 class="section-title">Latest Dispatches</h2>
+          </div>
+          <a href="blog.html" class="view-all-link">
+            View all stories
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="story-grid" id="latestStoriesGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="section-footer-cta reveal">
+          <a href="blog.html" class="btn btn-secondary btn-lg">Browse Full Archive</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card reveal">
+          <div class="newsletter-content">
+            <span class="newsletter-badge">THE WEEKLY DISPATCH</span>
+            <h2 class="newsletter-title">Subscribe to Thoughtful Reading</h2>
+            <p class="newsletter-desc">
+              Every Sunday morning, we send three original essays, design insights, and mindful reflections straight to your inbox. No noise, strictly substance.
+            </p>
+
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <div class="form-group">
+                <label for="newsletterEmail" class="sr-only">Email address</label>
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    id="newsletterEmail"
+                    name="email"
+                    placeholder="Enter your personal email..."
+                    required
+                    aria-describedby="newsletterFeedback"
+                  >
+                  <button type="submit" class="btn btn-accent btn-subscribe" id="newsletterSubmitBtn">
+                    <span>Subscribe</span>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div id="newsletterFeedback" class="newsletter-feedback" aria-live="polite"></div>
+              <p class="newsletter-privacy">
+                We respect your focus. Frontend storage demonstration &bull; Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand-logo footer-logo">
+            <span class="logo-mark">V</span>
+            <span class="logo-text">VISTORA</span>
+          </a>
+          <p class="footer-tagline">
+            An independent editorial publication curating essays on human-centered technology, intentional living, design principles, and creative craft.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Follow VISTORA on Twitter" title="Twitter / X">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Follow VISTORA on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Follow VISTORA on LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="VISTORA RSS Feed" title="RSS Feed">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Journal Archive</a></li>
+            <li><a href="saved.html">Saved Stories</a></li>
+            <li><a href="history.html">Reading History</a></li>
+            <li><a href="admin.html">Editorial CMS</a></li>
+            <li><a href="about.html">About VISTORA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Technology">Technology</a></li>
+            <li><a href="blog.html?category=Lifestyle">Lifestyle</a></li>
+            <li><a href="blog.html?category=Travel">Travel</a></li>
+            <li><a href="blog.html?category=Business">Business</a></li>
+            <li><a href="blog.html?category=Inspiration">Inspiration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Editorial Desk</h4>
+          <p class="footer-contact-text">Inquiries, submissions, and editorial letters:</p>
+          <a href="mailto:contact@vistora.blog" class="footer-contact-link">contact@vistora.blog</a>
+          <p class="footer-location">New Delhi &bull; London &bull; Tokyo</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 VISTORA Editorial. All rights reserved.</p>
+        <p class="tech-stack-text">Built with <strong>HTML5, CSS3 &amp; Vanilla JavaScript</strong> &bull; Zero Frameworks</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

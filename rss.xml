@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>VISTORA — Thoughtful Stories for Modern Minds</title>
+  <link>https://vistora.blog</link>
+  <description>Thoughtful stories on technology, lifestyle, travel, business, and creative living for modern minds.</description>
+  <language>en-us</language>
+  <atom:link href="https://vistora.blog/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title><![CDATA[The Quiet Future of Human-Centered AI]]></title>
+    <link>https://vistora.blog/post.html?slug=the-quiet-future-of-human-centered-ai</link>
+    <description><![CDATA[A thoughtful exploration of how intelligent computing can enhance human craftsmanship and agency rather than replace it.]]></description>
+    <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Technology]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Building Better Digital Habits Without Going Offline]]></title>
+    <link>https://vistora.blog/post.html?slug=building-better-digital-habits-without-going-offline</link>
+    <description><![CDATA[Why extreme digital detoxes rarely work, and how creating deliberate digital boundaries fosters sustainable cognitive focus.]]></description>
+    <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Lifestyle]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Modern Web Design Principles That Last]]></title>
+    <link>https://vistora.blog/post.html?slug=modern-web-design-principles-that-last</link>
+    <description><![CDATA[A critique of fleeting web design trends in favor of enduring typography, spatial harmony, and performance-led elegance.]]></description>
+    <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Inspiration]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Finding Creativity in Ordinary Days]]></title>
+    <link>https://vistora.blog/post.html?slug=finding-creativity-in-ordinary-days</link>
+    <description><![CDATA[Creative inspiration is rarely born from dramatic life disruptions; it thrives in the quiet observation of everyday routines.]]></description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Personal]]></category>
+  </item>
+  <item>
+    <title><![CDATA[A Beginner’s Guide to Intentional Photography]]></title>
+    <link>https://vistora.blog/post.html?slug=a-beginners-guide-to-intentional-photography</link>
+    <description><![CDATA[Transitioning from snapping mindless smartphone bursts to composing images with patience, negative space, and emotional weight.]]></description>
+    <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Inspiration]]></category>
+  </item>
+  <item>
+    <title><![CDATA[How Technology Is Changing the Way We Learn]]></title>
+    <link>https://vistora.blog/post.html?slug=how-technology-is-changing-the-way-we-learn</link>
+    <description><![CDATA[From static textbooks to interactive mental models: how personalized digital pedagogy is reshaping autodidactic mastery.]]></description>
+    <pubDate>Sun, 22 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Technology]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Building a Personal Brand With Clarity]]></title>
+    <link>https://vistora.blog/post.html?slug=building-a-personal-brand-with-clarity</link>
+    <description><![CDATA[Why authentic professional reputation is built on specific domain mastery and generous public writing rather than performative self-promotion.]]></description>
+    <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Business]]></category>
+  </item>
+  <item>
+    <title><![CDATA[The Future of Digital Communities]]></title>
+    <link>https://vistora.blog/post.html?slug=the-future-of-digital-communities</link>
+    <description><![CDATA[How the fragmentation of massive social networks is driving a renaissance of boutique forums, private newsletters, and niche micro-spaces.]]></description>
+    <pubDate>Sat, 14 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Technology]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Designing a Workday With More Focus]]></title>
+    <link>https://vistora.blog/post.html?slug=designing-a-workday-with-more-focus</link>
+    <description><![CDATA[Practical architectural strategies to protect deep work blocks against meeting creep and fragmented communication.]]></description>
+    <pubDate>Tue, 10 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Business]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Why Slow Travel Creates Better Stories]]></title>
+    <link>https://vistora.blog/post.html?slug=why-slow-travel-creates-better-stories</link>
+    <description><![CDATA[Swapping bucket-list itineraries for extended stays in single neighborhoods: the transformative philosophy of slow travel.]]></description>
+    <pubDate>Thu, 05 Feb 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Travel]]></category>
+  </item>
+  <item>
+    <title><![CDATA[The Small Systems Behind Big Creative Work]]></title>
+    <link>https://vistora.blog/post.html?slug=the-small-systems-behind-big-creative-work</link>
+    <description><![CDATA[How world-class creators rely on unglamorous, repeatable daily rituals rather than waiting for mystical inspiration.]]></description>
+    <pubDate>Thu, 29 Jan 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Business]]></category>
+  </item>
+  <item>
+    <title><![CDATA[Rethinking Success in a Connected World]]></title>
+    <link>https://vistora.blog/post.html?slug=rethinking-success-in-a-connected-world</link>
+    <description><![CDATA[Escaping mimetic career traps to define an independent, internally grounded philosophy of accomplishment.]]></description>
+    <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
+    <category><![CDATA[Personal]]></category>
+  </item>
+</channel>
+</rss>
