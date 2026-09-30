@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VISTORA Editorial CMS — Create, edit, and manage stories.">
+  <title>Editorial CMS — VISTORA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' font-weight='bold' fill='%23c26d53'>V</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" class="brand-logo" aria-label="VISTORA Home">
+          <span class="logo-mark">V</span>
+          <span class="logo-text">VISTORA</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="blog.html" class="nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+          <li><a href="admin.html" class="nav-link active">Write</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-right">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn theme-toggle" aria-label="Switch to dark theme" title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- User Nav Container (populated by auth.js) -->
+        <div id="userNavContainer" class="user-nav-wrap"></div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNavMenu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileNavMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Journal</a></li>
+          <li><a href="index.html#categories" class="mobile-nav-link">Categories</a></li>
+          <li><a href="admin.html" class="mobile-nav-link active">Write / CMS Studio</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About</a></li>
+          <li><a href="saved.html" class="mobile-nav-link">Saved</a></li>
+          <li><a href="history.html" class="mobile-nav-link">History</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <a href="admin.html" class="btn btn-primary btn-block">Write a Story</a>
+          <p class="mobile-tagline">"Thoughtful stories for modern minds."</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="section admin-page-section">
+      <div class="container container-lg">
+        <!-- Access denied state (shown if not admin/author) -->
+        <div id="adminAccessDenied" class="empty-state reveal" style="display: none; text-align: center; padding: 4rem 0;">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem; color: var(--text-muted);">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <h2 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Access Restricted</h2>
+          <p class="text-muted" style="margin-bottom: 1.5rem;">This area requires editorial privileges. Please sign in as an author or administrator.</p>
+          <a href="login.html" class="btn btn-primary">Sign In</a>
+        </div>
+
+        <!-- Admin Dashboard (shown when authenticated with proper role) -->
+        <div id="adminDashboard" style="display: none;">
+          <!-- Dashboard Header -->
+          <div class="admin-header reveal">
+            <div class="admin-header-content">
+              <h1 class="admin-title">Editorial CMS Studio</h1>
+              <p class="admin-subtitle">Create, edit, and manage VISTORA stories</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="newArticleBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>New Article</span>
+            </button>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="admin-stats-row reveal">
+            <div class="stat-card">
+              <span class="stat-number" id="statTotalArticles">0</span>
+              <span class="stat-label">Total Articles</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="statPublished">0</span>
+              <span class="stat-label">Published</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="statDrafts">0</span>
+              <span class="stat-label">Drafts</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="statTotalViews">0</span>
+              <span class="stat-label">Total Views</span>
+            </div>
+          </div>
+
+          <!-- Article Editor Modal -->
+          <div class="admin-modal-overlay" id="articleModal" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="admin-modal-dialog">
+              <button class="admin-modal-close" id="articleModalCloseBtn" aria-label="Close editor">&times;</button>
+
+              <div class="admin-modal-header">
+                <h2 class="admin-modal-title" id="articleModalTitle">New Article</h2>
+                <p class="admin-modal-subtitle" id="articleModalSubtitle">Craft your story with markdown support</p>
+              </div>
+
+              <div id="articleAlertBox" class="auth-alert" style="display: none;" aria-live="polite"></div>
+
+              <form id="articleForm" class="admin-form-body">
+                <!-- Basic Fields -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="articleTitle" class="form-label">Title <span class="required">*</span></label>
+                    <input type="text" id="articleTitle" class="form-input" placeholder="Enter article title" required maxlength="180">
+                    <span class="char-count" id="titleCharCount">0 / 180</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="articleSlug" class="form-label">Slug (URL)</label>
+                    <input type="text" id="articleSlug" class="form-input" placeholder="auto-generated-from-title" maxlength="120">
+                    <span class="form-hint">Auto-generated from title if left blank</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="articleCategory" class="form-label">Category <span class="required">*</span></label>
+                    <select id="articleCategory" class="form-select" required>
+                      <option value="">Select category</option>
+                      <option value="Technology">Technology</option>
+                      <option value="Lifestyle">Lifestyle</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Business">Business</option>
+                      <option value="Personal">Personal</option>
+                      <option value="Inspiration">Inspiration</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="articleAuthor" class="form-label">Author Name</label>
+                    <input type="text" id="articleAuthor" class="form-input" placeholder="Author name" maxlength="80">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="articleAuthorRole" class="form-label">Author Role</label>
+                    <input type="text" id="articleAuthorRole" class="form-input" placeholder="e.g. Senior Technology Editor" maxlength="80">
+                  </div>
+                  <div class="form-group">
+                    <label for="articleAuthorInitials" class="form-label">Initials</label>
+                    <input type="text" id="articleAuthorInitials" class="form-input" placeholder="MP" maxlength="4" style="width: 80px;">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="articleAuthorAvatarClass" class="form-label">Avatar Theme</label>
+                    <select id="articleAuthorAvatarClass" class="form-select">
+                      <option value="avatar-teal">Teal</option>
+                      <option value="avatar-terracotta">Terracotta</option>
+                      <option value="avatar-olive">Olive</option>
+                      <option value="avatar-slate">Slate</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="articleDate" class="form-label">Publication Date</label>
+                    <input type="date" id="articleDate" class="form-input">
+                  </div>
+                </div>
+
+                <!-- Image Fields -->
+                <div class="form-group">
+                  <label for="articleImage" class="form-label">Featured Image URL <span class="required">*</span></label>
+                  <input type="url" id="articleImage" class="form-input" placeholder="https://images.unsplash.com/..." required maxlength="500">
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="articleImageAlt" class="form-label">Image Alt Text</label>
+                    <input type="text" id="articleImageAlt" class="form-input" placeholder="Describe the image for accessibility" maxlength="180">
+                  </div>
+                  <div class="form-group">
+                    <label for="articleExcerpt" class="form-label">Excerpt / Subtitle</label>
+                    <input type="text" id="articleExcerpt" class="form-input" placeholder="Brief description for cards and SEO" maxlength="400">
+                    <span class="char-count" id="excerptCharCount">0 / 400</span>
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="form-group">
+                  <div class="form-label-row">
+                    <label for="articleTags" class="form-label">Tags</label>
+                    <span class="form-hint">Press Enter to add tags</span>
+                  </div>
+                  <div class="tag-input-wrapper" id="tagInputWrapper">
+                    <div class="tag-chips" id="tagChips"></div>
+                    <input type="text" id="articleTags" class="form-input tag-input" placeholder="Add tags (AI, Design, Ethics...)" autocomplete="off">
+                    <input type="hidden" id="articleTagsHidden" name="tags">
+                  </div>
+                </div>
+
+                <!-- Markdown Editor -->
+                <div class="form-group">
+                  <div class="form-label-row">
+                    <label for="articleMarkdown" class="form-label">Content (Markdown)</label>
+                    <div class="editor-toolbar" id="markdownToolbar">
+                      <button type="button" class="toolbar-btn" data-format="bold" title="Bold (Ctrl+B)" aria-label="Bold"><strong>B</strong></button>
+                      <button type="button" class="toolbar-btn" data-format="italic" title="Italic (Ctrl+I)" aria-label="Italic"><em>I</em></button>
+                      <button type="button" class="toolbar-btn" data-format="heading2" title="Heading 2" aria-label="Heading 2">H2</button>
+                      <button type="button" class="toolbar-btn" data-format="heading3" title="Heading 3" aria-label="Heading 3">H3</button>
+                      <button type="button" class="toolbar-btn" data-format="quote" title="Quote" aria-label="Quote">&#8220;</button>
+                      <button type="button" class="toolbar-btn" data-format="callout" title="Callout" aria-label="Callout">!</button>
+                      <button type="button" class="toolbar-btn" data-format="link" title="Link (Ctrl+K)" aria-label="Link">&#128279;</button>
+                      <button type="button" class="toolbar-btn" data-format="image" title="Image" aria-label="Image">&#128247;</button>
+                      <button type="button" class="toolbar-btn" data-format="ul" title="Unordered List" aria-label="Unordered List">&#8226;</button>
+                      <button type="button" class="toolbar-btn" data-format="ol" title="Ordered List" aria-label="Ordered List">1.</button>
+                    </div>
+                  </div>
+                  <div class="editor-split" id="editorSplit">
+                    <div class="editor-pane">
+                      <textarea id="articleMarkdown" class="form-textarea markdown-editor" rows="20" placeholder="Write your article in Markdown..." spellcheck="true"></textarea>
+                    </div>
+                    <div class="editor-pane preview-pane">
+                      <div class="preview-header">
+                        <span class="preview-badge">LIVE PREVIEW</span>
+                      </div>
+                      <div class="markdown-preview" id="markdownPreview"></div>
+                    </div>
+                  </div>
+                  <div class="editor-status">
+                    <span class="reading-time-estimate" id="readingTimeEstimate">Reading time: ~0 min</span>
+                    <span class="word-count" id="wordCount">0 words</span>
+                  </div>
+                </div>
+
+                <!-- Status & Options -->
+                <div class="form-row">
+                  <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="articleFeatured">
+                      <span class="checkbox-custom"></span>
+                      <span>Featured Article</span>
+                    </label>
+                  </div>
+                  <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="articleHighlight">
+                      <span class="checkbox-custom"></span>
+                      <span>Editor's Highlight</span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="articleStatus" class="form-label">Status</label>
+                    <select id="articleStatus" class="form-select">
+                      <option value="published">Published</option>
+                      <option value="draft">Draft</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Hidden fields -->
+                <input type="hidden" id="articleId" name="id">
+                <input type="hidden" id="articleViews" name="views" value="0">
+
+                <!-- Actions -->
+                <div class="form-actions">
+                  <button type="button" class="btn btn-secondary" id="cancelArticleBtn">Cancel</button>
+                  <button type="button" class="btn btn-ghost" id="previewArticleBtn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Preview</span>
+                  </button>
+                  <button type="submit" class="btn btn-primary btn-lg" id="saveArticleBtn">
+                    <span id="saveBtnText">Save Article</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Articles Management Table -->
+          <div class="admin-table-section reveal">
+            <div class="admin-table-header">
+              <h3 class="admin-section-title">All Articles</h3>
+              <div class="admin-table-search">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="articleSearch" class="form-input" placeholder="Search articles..." aria-label="Search articles">
+              </div>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="admin-table" id="articlesTable">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Views</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="articlesTableBody">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div id="articlesEmpty" class="empty-state" style="display: none; text-align: center; padding: 3rem;">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; color: var(--text-muted);">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">No Articles Yet</h3>
+              <p class="text-muted" style="margin-bottom: 1.5rem;">Create your first story to get started.</p>
+              <button type="button" class="btn btn-primary" id="createFirstArticleBtn">Write First Story</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand-logo footer-logo">
+            <span class="logo-mark">V</span>
+            <span class="logo-text">VISTORA</span>
+          </a>
+          <p class="footer-tagline">
+            An independent editorial publication curating essays on human-centered technology, intentional living, design principles, and creative craft.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Journal Archive</a></li>
+            <li><a href="saved.html">Saved Stories</a></li>
+            <li><a href="history.html">Reading History</a></li>
+            <li><a href="about.html">About VISTORA</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="blog.html?category=Technology">Technology</a></li>
+            <li><a href="blog.html?category=Lifestyle">Lifestyle</a></li>
+            <li><a href="blog.html?category=Travel">Travel</a></li>
+            <li><a href="blog.html?category=Business">Business</a></li>
+            <li><a href="blog.html?category=Inspiration">Inspiration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Editorial Desk</h4>
+          <a href="mailto:contact@vistora.blog" class="footer-contact-link">contact@vistora.blog</a>
+          <p class="footer-location">New Delhi &bull; London &bull; Tokyo</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 VISTORA Editorial. All rights reserved.</p>
+        <p class="tech-stack-text">Built with <strong>HTML5, CSS3 & Vanilla JavaScript</strong> &bull; Zero Frameworks</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/markdown.js"></script>
+</body>
+</html>
